@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*/__pycache__/
+app/__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyc
+
+# Flask files
+instance/
+*.sqlite3
+*.db
+*.log
+
+# Flask configuration/environment files
+.env
+*.env
+config.py
+*.bak
+
+# Pytest and coverage files
+.cache
+.coverage
+htmlcov/
+*.cover
+*.py,cover
+.tox/
+nosetests.xml
+coverage.xml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# MacOS files
+.DS_Store
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# Logs and temp files
+*.log
+*.out
+*.err
+*.pid
+*.gz
+tmp/
+
+# Docker and virtual environments
+.dockerignore
+docker-compose.yml
+Dockerfile
+
+# Git specific
+.git/
+.flaskenv
