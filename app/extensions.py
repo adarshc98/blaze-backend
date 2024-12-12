@@ -6,7 +6,7 @@ api = Api()
 api = Api(version='1.0', title='Prediction API',
           description='stock market prediciton api')
 
-ns = api.namespace('api', description='API endpoints for prediction')
+ns = api.namespace('blaze', description='API endpoints for prediction')
 
 
 response_model_for_prediction = api.model('response', {

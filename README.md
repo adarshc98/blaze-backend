@@ -9,7 +9,8 @@ This project provides a Flask API with Swagger documentation for blaze filtering
 -   Simple API endpoint returning a prediction response
 
 ## Installation
+micromamba create -n blazingsql_env python=3.8 cudatoolkit=11.4 cudf=21.08 dask-cudf=21.08 blazingsql=21.8.2 -c rapidsai -c nvidia -c conda-forge
+micromamba activate blazingsql_env
+micromamba install --file req.txt
 
-# conda dependencies for blaze
-
-micromamba env create -f environment.yml
+flask run --port=8889

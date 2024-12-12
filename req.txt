@@ -1,0 +1,6 @@
+flask=2.1.0
+flask-restx=1.3.0
+python-dotenv=1.0.1
+pydash=8.0.3
+openai
+numpy==1.22

@@ -1,9 +1,12 @@
 from flask import Flask
-from .extensions import api
-from .resources import ns
+from .blaze import BlazeSql
+from .utils import get_files_list
 
 def create_app():
     app = Flask(__name__)
-    api.init_app(app)
-    api.add_namespace(ns)
+
+    # Your routes and logic will go here
+    from . import routes
+    app.register_blueprint(routes.bp)
+
     return app

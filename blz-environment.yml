@@ -1,0 +1,5 @@
+name: myenv
+channels:
+dependencies:
+
+prefix: "/root/micromamba/envs/myenv"
