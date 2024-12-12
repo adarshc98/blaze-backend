@@ -1,4 +1,4 @@
-# Stock Market Prediction API
+# Backend for blazeSql Filtering
 
 This project provides a Flask API with Swagger documentation for blaze filtering
 
