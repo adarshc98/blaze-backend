@@ -1,6 +1,7 @@
-from blazingsql import BlazingContext
 import cudf
 import time
+
+TABLE_NAME = 'root_table'
 
 class BlazeSql:
     def __init__(self, data_dir, file_name):
@@ -8,17 +9,16 @@ class BlazeSql:
         self.data_dir = data_dir
         self.file_name = file_name
         self.source_path = f"{self.data_dir}/{self.file_name}"
-
-        self.bc = BlazingContext()
-
+        self.bc=None
         self.cudf_df = self.optimized_load_data()
-        self.register_table()
 
     def load_data(self):
         cudf_df = cudf.read_csv(self.source_path)
         return cudf_df
 
     def optimized_load_data(self):
+        from blazingsql import BlazingContext
+        self.bc = BlazingContext()
         dtype_dict = {
             'timestamp': 'str',
             'open': 'float64',
@@ -33,10 +33,9 @@ class BlazeSql:
         loading_csv_time = time.time() - start_time
         if(self.perfmon):
             print('loading csv time', loading_csv_time)
+        self.bc.create_table(TABLE_NAME, cudf_df)
+        print("Table registered in BlazingSQL.")
         return cudf_df
-
-    def register_table(self, table_name="root_table"):
-        self.bc.create_table(table_name, self.cudf_df)
 
     def execute_query(self, query_to_be_exec):
         print(f"Executing query: {query_to_be_exec}")
@@ -48,10 +47,12 @@ class BlazeSql:
         return result
 
     def run(self, query_to_be_exec):
+        start_time = time.time()
         result = self.execute_query(query_to_be_exec)
+        query_time = time.time() - start_time
         print("Query Result:")
         print(result)
-        return result
+        return {"result": result, "query_time": query_time}
 
     def get_metadata(self):
         metadata = {
