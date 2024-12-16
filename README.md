@@ -14,5 +14,7 @@ micromamba create -n blazingsql_env python=3.8
 micromamba activate blazingsql_env
 micromamba install -c blazingsql -c rapidsai -c nvidia -c conda-forge -c defaults blazingsql python=3.8 cudatoolkit=11.4
 micromamba install --file req.txt
-flask run --port=8889
 
+## to run
+micromamba activate blazingsql_env
+flask run --port=8889
